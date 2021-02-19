@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIView*v = [[UIView alloc]init];
+    
     
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184AA64625DFA84D003A19FF /* MethodChannelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AA64525DFA84D003A19FF /* MethodChannelDemoViewController.m */; };
 		1862DD7D25B8189C00F80204 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862DD7C25B8189C00F80204 /* AppDelegate.m */; };
 		1862DD8025B8189C00F80204 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862DD7F25B8189C00F80204 /* SceneDelegate.m */; };
 		1862DD8325B8189C00F80204 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862DD8225B8189C00F80204 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184AA64425DFA84D003A19FF /* MethodChannelDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MethodChannelDemoViewController.h; sourceTree = "<group>"; };
+		184AA64525DFA84D003A19FF /* MethodChannelDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MethodChannelDemoViewController.m; sourceTree = "<group>"; };
 		1862DD7825B8189C00F80204 /* ios-flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-flutter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1862DD7B25B8189C00F80204 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1862DD7C25B8189C00F80204 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				18ECC91225CD663F007A7459 /* Test1ViewController.h */,
 				18ECC91325CD663F007A7459 /* Test1ViewController.m */,
 				18ECC91425CD663F007A7459 /* Test1ViewController.xib */,
+				184AA64425DFA84D003A19FF /* MethodChannelDemoViewController.h */,
+				184AA64525DFA84D003A19FF /* MethodChannelDemoViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184AA64625DFA84D003A19FF /* MethodChannelDemoViewController.m in Sources */,
 				1862DD8325B8189C00F80204 /* ViewController.m in Sources */,
 				18ECC91525CD663F007A7459 /* Test1ViewController.m in Sources */,
 				1862DD7D25B8189C00F80204 /* AppDelegate.m in Sources */,
@@ -405,7 +411,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "tech.ios-flutter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -426,7 +432,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "tech.ios-flutter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
