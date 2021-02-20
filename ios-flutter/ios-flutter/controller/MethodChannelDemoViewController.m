@@ -47,11 +47,6 @@
             BOOL arr_2 = [[arr objectAtIndex:2]boolValue];
             NSLog(@"arr_2: %d",arr_2);
         }
-        
-        
     }];
 }
-
-
-
 @end
