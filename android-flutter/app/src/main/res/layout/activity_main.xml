@@ -13,6 +13,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="FlutterActivity1"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +25,23 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="MethodChannelDemoActivity"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_FlutterActivity1" />
+
+    <Button
+        android:id="@+id/btn_FlutterEngineGroupActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="FlutterEngineGroupActivity"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_MethodChannelDemoActivity" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
