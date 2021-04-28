@@ -4,9 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.zw.android_flutter.activity.FlutterActivity1
-import com.zw.android_flutter.activity.FlutterEngineGroupActivity
-import com.zw.android_flutter.activity.MethodChannelDemoActivity
+import com.zw.android_flutter.activity.demo.Demo1Activity
+import com.zw.android_flutter.activity.flutter.FlutterActivity1
+import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
+import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
         btn_FlutterActivity1.setOnClickListener(this)
         btn_MethodChannelDemoActivity.setOnClickListener(this)
-        btn_FlutterEngineGroupActivity.setOnClickListener(this)
+        btn_Demo1Activity.setOnClickListener(this)
 
 
     }
@@ -34,6 +35,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btn_FlutterEngineGroupActivity -> {
                 var i = Intent(this@MainActivity, FlutterEngineGroupActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+
+            R.id.btn_Demo1Activity -> {
+                var i = Intent(this@MainActivity, Demo1Activity::class.java)
                 this@MainActivity.startActivity(i)
             }
 

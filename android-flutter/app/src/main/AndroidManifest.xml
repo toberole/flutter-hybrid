@@ -10,9 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity.FlutterEngineGroupActivity"></activity>
-        <activity android:name=".activity.MethodChannelDemoActivity" />
-        <activity android:name=".activity.FlutterActivity1" />
+        <activity android:name=".activity.demo.Demo1Activity"></activity>
+        <activity android:name=".activity.flutter.FlutterEngineGroupActivity" />
+        <activity android:name=".activity.flutter.MethodChannelDemoActivity" />
+        <activity android:name=".activity.flutter.FlutterActivity1" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

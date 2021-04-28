@@ -1,4 +1,4 @@
-package com.zw.android_flutter.activity
+package com.zw.android_flutter.activity.flutter
 
 import android.util.Log
 import io.flutter.embedding.android.FlutterActivity
