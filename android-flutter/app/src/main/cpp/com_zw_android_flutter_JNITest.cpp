@@ -1,5 +1,5 @@
 #include "com_zw_android_flutter_JNITest.h"
-
+#include <android/log.h>
 /*
  * Class:     com_zw_android_flutter_JNITest
  * Method:    test1
@@ -11,11 +11,11 @@ JNIEXPORT void JNICALL Java_com_zw_android_1flutter_JNITest_test1
     jmethodID method = env->GetMethodID(jclazz,"callback","(ILjava/lang/String;)V");
     jstring s = env->NewStringUTF("error msg");
     env->CallVoidMethod(jobj,method,110,s);
-
+    __android_log_print(ANDROID_LOG_INFO,"Hello-jni" , "test null %s",nullptr);
     // 检测jni方法是否发生异常
-    if (env->ExceptionCheck()){
-        env->ExceptionDescribe();
-        env->ExceptionClear();
-        env->ThrowNew(env->FindClass("java/lang/Exception"),"JNI抛出的异常！");
-    }
+//    if (env->ExceptionCheck()){
+//        env->ExceptionDescribe();
+//        env->ExceptionClear();
+//        env->ThrowNew(env->FindClass("java/lang/Exception"),"JNI抛出的异常！");
+//    }
 }

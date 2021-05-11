@@ -1,6 +1,7 @@
 include ':app'
 rootProject.name = "android-flutter"
 
+// 依赖Flutter module配置
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         settingsDir.parentFile,
