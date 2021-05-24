@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TestView1">
+        <attr name="colorForeground" format="color" />
+        <attr name="colorBackground" format="color" />
+        <attr name="paddingRight" format="dimension" />
+        <attr name="paddingLeft" format="dimension" />
+    </declare-styleable>
+</resources>

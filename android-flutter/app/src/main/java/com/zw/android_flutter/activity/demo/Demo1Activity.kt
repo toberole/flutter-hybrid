@@ -1,15 +1,18 @@
 package com.zw.android_flutter.activity.demo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter.JNITest
 import com.zw.android_flutter.R
+import com.zw.android_flutter.view.TestViewGroup
 import kotlinx.android.synthetic.main.activity_demo1.*
 
 class Demo1Activity : AppCompatActivity(), View.OnClickListener {
@@ -20,6 +23,13 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
         btn_test1.setOnClickListener(this)
         testView.setOnClickListener(this)
         test()
+
+        var v = findViewById<ViewGroup>(android.R.id.content)
+        Log.i("Demo1Activity-xxx", "R.id.content childCount: ${v.childCount}...... $v")
+
+        val contentTop = findViewById<View>(android.R.id.content).top
+        //statusBarHeight是上面所求的状态栏的高度
+
     }
 
     fun test() {
@@ -32,6 +42,9 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
     override fun onStart() {
         super.onStart()
         Log.i("Demo1Activity-xxx", "onStart ......")
+        window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
+
+        }
     }
 
     override fun onResume() {
@@ -89,5 +102,15 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
                 testView.anim()
             }
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        Thread.dumpStack()
+        return super.dispatchTouchEvent(ev)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        Log.i(TestViewGroup.TAG, "Demo1Activity#onTouchEvent ......" + event!!.action)
+        return super.onTouchEvent(event)
     }
 }

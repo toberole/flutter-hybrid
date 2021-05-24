@@ -45,6 +45,9 @@ class TestView(
         var r = if (w < h) w / 2 else h / 2
 
         var paint = Paint()
+        var flags = paint.flags
+        paint.flags = (Paint.ANTI_ALIAS_FLAG or flags)
+
         paint.setColor(Color.RED)
         canvas?.drawCircle((w / 2).toFloat(), (h / 2).toFloat(), r.toFloat(), paint)
     }
@@ -74,5 +77,7 @@ class TestView(
         }
     }
 
-
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+    }
 }

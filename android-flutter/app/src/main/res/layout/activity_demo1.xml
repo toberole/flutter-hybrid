@@ -1,23 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
+    android:background="@android:color/holo_blue_bright"
+    android:fillViewport="true"
     tools:context=".activity.demo.Demo1Activity">
 
-    <Button
-        android:id="@+id/btn_test1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test1"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <com.zw.android_flutter.view.TestView
-        android:id="@+id/testView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@color/black" />
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_test1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.zw.android_flutter.view.TestView
+            android:id="@+id/testView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@color/black" />
+
+        <com.zw.android_flutter.view.TestViewGroup
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@android:color/darker_gray" />
+
+        <com.zw.android_flutter.view.TestViewGroup
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_green_dark" />
+
+        <com.zw.android_flutter.view.TestView1
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            app:colorBackground="@android:color/darker_gray"
+            app:colorForeground="@android:color/holo_green_dark"
+            app:paddingLeft="10dp"
+            app:paddingRight="20dp" />
+
+        <com.zw.android_flutter.view.TestViewGroup1
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#FF0000"
+                android:text="button-1" />
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="70dp"
+                android:background="#00FF00"
+                android:text="button-2" />
+        </com.zw.android_flutter.view.TestViewGroup1>
+
+    </LinearLayout>
+</ScrollView>
