@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.zw.android_flutter.activity.demo.Demo1Activity
+import com.zw.android_flutter.activity.demo.Demo2Activity
 import com.zw.android_flutter.activity.flutter.FlutterActivity1
 import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
 import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_FlutterActivity1.setOnClickListener(this)
         btn_MethodChannelDemoActivity.setOnClickListener(this)
         btn_Demo1Activity.setOnClickListener(this)
+        btn_Demo2Activity.setOnClickListener(this)
 
 
     }
@@ -40,6 +42,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btn_Demo1Activity -> {
                 var i = Intent(this@MainActivity, Demo1Activity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+            R.id.btn_Demo2Activity -> {
+                var i = Intent(this@MainActivity, Demo2Activity::class.java)
                 this@MainActivity.startActivity(i)
             }
 
