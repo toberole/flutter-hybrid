@@ -37,30 +37,37 @@
             android:layout_height="100dp"
             android:background="@android:color/holo_green_dark" />
 
-        <com.zw.android_flutter.view.TestView1
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            app:colorBackground="@android:color/darker_gray"
-            app:colorForeground="@android:color/holo_green_dark"
-            app:paddingLeft="10dp"
-            app:paddingRight="20dp" />
+<!--        <com.zw.android_flutter.view.TestView1-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="150dp"-->
+<!--            app:colorBackground="@android:color/darker_gray"-->
+<!--            app:colorForeground="@android:color/holo_green_dark"-->
+<!--            app:paddingLeft="10dp"-->
+<!--            app:paddingRight="20dp" />-->
 
-        <com.zw.android_flutter.view.TestViewGroup1
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+<!--        <com.zw.android_flutter.view.TestViewGroup1-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp">-->
 
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="#FF0000"
-                android:text="button-1" />
+<!--            <Button-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="#FF0000"-->
+<!--                android:text="button-1" />-->
 
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="70dp"
-                android:background="#00FF00"
-                android:text="button-2" />
-        </com.zw.android_flutter.view.TestViewGroup1>
+<!--            <Button-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:background="#00FF00"-->
+<!--                android:text="button-2" />-->
+<!--        </com.zw.android_flutter.view.TestViewGroup1>-->
+
+        <Button
+            android:text="test_anim"
+            android:id="@+id/btn_test_anim"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#00FF00" />
 
     </LinearLayout>
 </ScrollView>

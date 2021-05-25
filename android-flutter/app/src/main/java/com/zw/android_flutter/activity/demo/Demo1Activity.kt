@@ -1,5 +1,7 @@
 package com.zw.android_flutter.activity.demo
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
@@ -22,6 +24,7 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
         Log.i("Demo1Activity-xxx", "onCreate ......")
         btn_test1.setOnClickListener(this)
         testView.setOnClickListener(this)
+        btn_test_anim.setOnClickListener(this)
         test()
 
         var v = findViewById<ViewGroup>(android.R.id.content)
@@ -98,8 +101,29 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
                 var t = JNITest()
                 t.test1(0);
             }
+
             R.id.testView -> {
                 testView.anim()
+            }
+
+            R.id.btn_test_anim -> {
+                Log.i("btn_test_anim", "btn_test_anim width: ${btn_test_anim.width} ......")
+
+                var w = btn_test_anim.width
+                var v = ValueAnimator.ofInt(w, (w * 0.3).toInt(), w)
+                v.addUpdateListener { it ->
+                    var i = it.animatedValue as Int
+                    btn_test_anim.layoutParams.width = i
+                    btn_test_anim.requestLayout()
+                }
+
+                v.setDuration(2000)
+                v.repeatCount = ValueAnimator.INFINITE
+                v.start()
+
+                ObjectAnimator.ofInt(btn_test_anim, "width", 100, 20, 100)
+                    .setDuration(2000)
+                    .start()
             }
         }
     }
