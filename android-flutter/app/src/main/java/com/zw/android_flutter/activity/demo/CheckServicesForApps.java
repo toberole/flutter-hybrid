@@ -3,26 +3,35 @@ package com.zw.android_flutter.activity.demo;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 public class CheckServicesForApps extends Service {
-    private Context context = null;
+    public static final String TAG = CheckServicesForApps.class.getSimpleName();
+
     private WindowManager windowManager;
-    private Handler hand;
-    private ImageView imageView;
+    private TextView imageView;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        imageView = new ImageView(context);
-        imageView.setVisibility(View.GONE);
+        Log.i(TAG, "CheckServicesForApps#onCreate ......");
+        // showFloatView();
+    }
+
+    private void showFloatView() {
+        imageView = new TextView(getApplicationContext());
+        imageView.setVisibility(View.VISIBLE);
+        imageView.setTextColor(Color.RED);
+        imageView.setText("Hello Float View");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
@@ -39,11 +48,11 @@ public class CheckServicesForApps extends Service {
                         PixelFormat.TRANSLUCENT
                 );
 
-                windowManager.addView(imageView, params);
-                hand = new Handler();
+                params.x = ((getApplicationContext().getResources().getDisplayMetrics().widthPixels) / 2);
+                params.y = ((getApplicationContext().getResources().getDisplayMetrics().heightPixels) / 2);
 
+                windowManager.addView(imageView, params);
             } catch (Exception e) {
-                hand = new Handler();
                 e.printStackTrace();
             }
         } else {
@@ -70,6 +79,8 @@ public class CheckServicesForApps extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(TAG, "CheckServicesForApps#onStartCommand ......");
+        showFloatView();
         /* We want this service to continue running until it is explicitly
          * stopped, so return sticky.
          */

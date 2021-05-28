@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zw.android_flutter">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".App"
@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity.demo.Demo2Activity"></activity>
+        <service
+            android:name=".service.IMyAidlInterfaceService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".activity.demo.Demo2Activity" />
         <activity
             android:name=".activity.demo.Demo1Activity"
             android:launchMode="singleTop">
@@ -34,7 +39,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".activity.demo.CheckServicesForApps"/>
+        <service android:name=".activity.demo.CheckServicesForApps" />
     </application>
 
 </manifest>
