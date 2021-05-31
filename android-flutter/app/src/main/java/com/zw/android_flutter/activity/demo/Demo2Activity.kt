@@ -32,6 +32,8 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
         btn_test2.setOnClickListener(this)
         btn_test3.setOnClickListener(this)
 
+        Log.i("Demo2Activity-xxx", Build.VERSION.SDK)
+
         if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(this)) {
                 val intent = Intent(
@@ -74,6 +76,7 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
                 } else {
                     WindowManager.LayoutParams.TYPE_PHONE
                 }
+
 
                 var p = WindowManager.LayoutParams(
                     WindowManager.LayoutParams.WRAP_CONTENT,
