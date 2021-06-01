@@ -21,7 +21,6 @@ import com.zw.android_flutter.R
 import com.zw.android_flutter.service.IMyAidlInterfaceService
 import kotlinx.android.synthetic.main.activity_demo2.*
 
-
 class Demo2Activity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binder: IMyAidlInterface
 
