@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.MessageQueue;
 import android.util.Log;
 
 import java.io.FileOutputStream;
@@ -36,6 +37,14 @@ public class Test4 {
 
         Looper.prepare();
         Looper.loop();
+        Looper.myQueue();
+
+        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(){
+            @Override
+            public boolean queueIdle() {
+                return false;
+            }
+        });
     }
 
     public void test2() {

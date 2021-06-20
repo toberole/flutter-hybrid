@@ -137,4 +137,8 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
         Log.i(TestViewGroup.TAG, "Demo1Activity#onTouchEvent ......" + event!!.action)
         return super.onTouchEvent(event)
     }
+
+    override fun onContentChanged() {
+        super.onContentChanged()
+    }
 }
