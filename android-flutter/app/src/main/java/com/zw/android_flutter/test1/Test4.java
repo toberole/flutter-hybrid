@@ -1,6 +1,7 @@
 package com.zw.android_flutter.test1;
 
 import android.animation.IntEvaluator;
+import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.util.Log;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+
+import dalvik.system.DexClassLoader;
+import dalvik.system.PathClassLoader;
 
 public class Test4 {
     public void test() {
@@ -45,6 +49,16 @@ public class Test4 {
                 return false;
             }
         });
+
+        Handler handler = null;
+        Message message = Message.obtain();
+        message.setAsynchronous(true);
+
+        IntentService service;
+
+
+        DexClassLoader dexClassLoader;
+        PathClassLoader pathClassLoader;
     }
 
     public void test2() {

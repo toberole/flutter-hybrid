@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.zw.android_flutter.activity.demo.Demo1Activity
 import com.zw.android_flutter.activity.demo.Demo2Activity
+import com.zw.android_flutter.activity.demo.TestFragmentActivity
 import com.zw.android_flutter.activity.flutter.FlutterActivity1
 import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
 import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
@@ -15,12 +16,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         btn_FlutterActivity1.setOnClickListener(this)
         btn_MethodChannelDemoActivity.setOnClickListener(this)
         btn_Demo1Activity.setOnClickListener(this)
         btn_Demo2Activity.setOnClickListener(this)
-
-
+        btn_TestFragmentActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -44,12 +45,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 var i = Intent(this@MainActivity, Demo1Activity::class.java)
                 this@MainActivity.startActivity(i)
             }
+
             R.id.btn_Demo2Activity -> {
                 var i = Intent(this@MainActivity, Demo2Activity::class.java)
                 this@MainActivity.startActivity(i)
             }
 
-
+            R.id.btn_TestFragmentActivity -> {
+                var i = Intent(this@MainActivity, TestFragmentActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
         }
     }
 }

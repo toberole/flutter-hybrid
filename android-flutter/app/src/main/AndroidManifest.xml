@@ -12,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
+        <activity android:name=".activity.demo.TestFragmentActivity"></activity>
+
         <service
             android:name=".service.IMyAidlInterfaceService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity android:name=".activity.demo.Demo2Activity" />
         <activity
