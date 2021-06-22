@@ -5,9 +5,9 @@ import android.content.Intent
 import android.os.IBinder
 import android.util.Log
 
-class IMyAidlInterfaceService : Service() {
+class MyService : Service() {
     companion object {
-        var TAG = IMyAidlInterfaceService::class.java.simpleName
+        var TAG = MyService::class.java.simpleName
     }
 
     override fun onCreate() {
@@ -20,12 +20,23 @@ class IMyAidlInterfaceService : Service() {
         return super.onStartCommand(intent, flags, startId)
     }
 
-    override fun onBind(intent: Intent): IBinder {
+    override fun onBind(intent: Intent): IBinder? {
         Log.i(TAG, "onBind ......")
-        return IMyAidlInterfaceImpl.getInstance()
+        return null
     }
 
     override fun onUnbind(intent: Intent?): Boolean {
+        Log.i(TAG, "onUnbind ......")
         return super.onUnbind(intent)
+    }
+
+    override fun onRebind(intent: Intent?) {
+        Log.i(TAG, "onRebind ......")
+        super.onRebind(intent)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy ......")
     }
 }

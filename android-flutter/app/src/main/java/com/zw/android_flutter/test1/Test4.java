@@ -11,8 +11,13 @@ import android.os.Message;
 import android.os.MessageQueue;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import dalvik.system.DexClassLoader;
 import dalvik.system.PathClassLoader;
@@ -40,8 +45,15 @@ public class Test4 {
         Context context = null;
 
         Looper.prepare();
+        Handler handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+            }
+        };
         Looper.loop();
         Looper.myQueue();
+        handler.post(null);
 
         Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(){
             @Override
@@ -50,9 +62,9 @@ public class Test4 {
             }
         });
 
-        Handler handler = null;
+
         Message message = Message.obtain();
-        message.setAsynchronous(true);
+        // message.setAsynchronous(true);
 
         IntentService service;
 
@@ -96,5 +108,9 @@ public class Test4 {
             };
             Looper.loop();
         }
+    }
+
+    private void test3(){
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,1,1, TimeUnit.MINUTES,new LinkedBlockingQueue<>());
     }
 } 

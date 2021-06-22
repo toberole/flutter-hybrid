@@ -12,13 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity.demo.TestFragmentActivity"></activity>
+        <activity android:name=".activity.demo.TestServiceActivity"></activity>
 
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true" />
         <service
             android:name=".service.IMyAidlInterfaceService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:process="com.xxx.test.aaa" />
+        <service android:name=".activity.demo.CheckServicesForApps" />
 
+        <activity android:name=".activity.demo.TestFragmentActivity" />
         <activity android:name=".activity.demo.Demo2Activity" />
         <activity
             android:name=".activity.demo.Demo1Activity"
@@ -40,8 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service android:name=".activity.demo.CheckServicesForApps" />
     </application>
 
 </manifest>

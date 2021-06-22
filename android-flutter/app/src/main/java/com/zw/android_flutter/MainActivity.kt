@@ -7,6 +7,7 @@ import android.view.View
 import com.zw.android_flutter.activity.demo.Demo1Activity
 import com.zw.android_flutter.activity.demo.Demo2Activity
 import com.zw.android_flutter.activity.demo.TestFragmentActivity
+import com.zw.android_flutter.activity.demo.TestServiceActivity
 import com.zw.android_flutter.activity.flutter.FlutterActivity1
 import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
 import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
@@ -22,12 +23,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_Demo1Activity.setOnClickListener(this)
         btn_Demo2Activity.setOnClickListener(this)
         btn_TestFragmentActivity.setOnClickListener(this)
+        btn_TestServiceActivity.setOnClickListener(this)
+
+
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btn_TestServiceActivity -> {
+                var i = Intent(this@MainActivity, TestServiceActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+
             R.id.btn_FlutterActivity1 -> {
-                var i = Intent(this@MainActivity, FlutterActivity1::class.java)
+                //val target = FlutterActivity1::class.java
+                val target = getTarget()
+                var i = Intent(this@MainActivity, target)
                 this@MainActivity.startActivity(i)
             }
 
@@ -55,6 +66,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 var i = Intent(this@MainActivity, TestFragmentActivity::class.java)
                 this@MainActivity.startActivity(i)
             }
+
+
         }
+    }
+
+    private fun getTarget(): Class<*>? {
+        return FlutterActivity1::class.java
     }
 }
