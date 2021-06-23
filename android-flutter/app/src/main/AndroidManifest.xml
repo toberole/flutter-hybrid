@@ -12,7 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity.demo.TestServiceActivity"></activity>
+        <activity
+            android:name=".activity.demo.LifeCycleActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.test.xxxx" />
+
+                <category android:name="com.test.xxxx" />
+                <category android:name="android.intent.category.DEFAULT" /> <!-- 必须有这个-->
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.demo.TestServiceActivity" />
 
         <service
             android:name=".service.MyService"

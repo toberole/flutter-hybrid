@@ -4,10 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.zw.android_flutter.activity.demo.Demo1Activity
-import com.zw.android_flutter.activity.demo.Demo2Activity
-import com.zw.android_flutter.activity.demo.TestFragmentActivity
-import com.zw.android_flutter.activity.demo.TestServiceActivity
+import android.view.Window
+import android.view.WindowManager
+import com.zw.android_flutter.activity.demo.*
 import com.zw.android_flutter.activity.flutter.FlutterActivity1
 import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
 import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
@@ -16,6 +15,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        // 设置全屏模式
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        // 去除标题栏
+//        requestWindowFeature(Window.FEATURE_NO_TITLE)
+
         setContentView(R.layout.activity_main)
 
         btn_FlutterActivity1.setOnClickListener(this)
@@ -24,12 +29,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_Demo2Activity.setOnClickListener(this)
         btn_TestFragmentActivity.setOnClickListener(this)
         btn_TestServiceActivity.setOnClickListener(this)
+        btn_LifeCycleActivity.setOnClickListener(this)
 
 
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btn_LifeCycleActivity -> {
+//                var i = Intent(this@MainActivity, LifeCycleActivity::class.java)
+//                this@MainActivity.startActivity(i)
+
+                var i = Intent()
+                i.setAction("com.test.xxxx")
+                i.addCategory("com.test.xxxx")
+                this@MainActivity.startActivity(i)
+            }
+
             R.id.btn_TestServiceActivity -> {
                 var i = Intent(this@MainActivity, TestServiceActivity::class.java)
                 this@MainActivity.startActivity(i)

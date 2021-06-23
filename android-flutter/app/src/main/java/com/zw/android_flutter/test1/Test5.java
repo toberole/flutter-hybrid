@@ -1,5 +1,6 @@
 package com.zw.android_flutter.test1;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.HandlerThread;
 
@@ -15,5 +16,8 @@ public class Test5 {
 
         DexClassLoader dexClassLoader;
         PathClassLoader pathClassLoader;
+
+        Intent intent = null;
+
     }
 }
