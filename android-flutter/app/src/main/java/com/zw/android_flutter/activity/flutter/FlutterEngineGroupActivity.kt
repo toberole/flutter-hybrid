@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import com.zw.android_flutter.App
-import com.zw.android_flutter.activity.DemoBaseFlutterActivity
+import com.zw.android_flutter.DemoBaseFlutterActivity
 import io.flutter.FlutterInjector
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.dart.DartExecutor

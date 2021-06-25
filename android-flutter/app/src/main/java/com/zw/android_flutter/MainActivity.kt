@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import com.zw.android_flutter.activity.demo.*
 import com.zw.android_flutter.activity.flutter.FlutterActivity1
 import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
@@ -30,12 +28,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_TestFragmentActivity.setOnClickListener(this)
         btn_TestServiceActivity.setOnClickListener(this)
         btn_LifeCycleActivity.setOnClickListener(this)
-
-
+        btn_TaskActivity.setOnClickListener(this)
+        btn_List_Recycler_Activity.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
+
+            R.id.btn_List_Recycler_Activity -> {
+                var i = Intent(this@MainActivity, List_Recycler_View_Activity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+
+            R.id.btn_TaskActivity -> {
+                var i = Intent(this@MainActivity, TaskActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+
             R.id.btn_LifeCycleActivity -> {
 //                var i = Intent(this@MainActivity, LifeCycleActivity::class.java)
 //                this@MainActivity.startActivity(i)

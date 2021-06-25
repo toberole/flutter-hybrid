@@ -2,7 +2,7 @@ package com.zw.android_flutter.activity.demo
 
 import android.os.Bundle
 import com.zw.android_flutter.R
-import com.zw.android_flutter.activity.DemoBaseActivity
+import com.zw.android_flutter.DemoBaseActivity
 
 class LifeCycleActivity : DemoBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,18 +1,13 @@
-package com.zw.android_flutter.activity;
+package com.zw.android_flutter;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import io.flutter.embedding.android.FlutterActivity;
-
-public class DemoBaseFlutterActivity extends FlutterActivity {
-    @Override
-    public String getInitialRoute() {
-        return super.getInitialRoute();
-    }
+public class DemoBaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

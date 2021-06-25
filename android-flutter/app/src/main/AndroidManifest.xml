@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
+        <activity android:name=".activity.demo.List_Recycler_View_Activity"></activity>
+        <activity android:name=".activity.demo.TaskActivity" />
         <activity
             android:name=".activity.demo.LifeCycleActivity"
             android:exported="true">
@@ -19,10 +21,9 @@
                 <action android:name="com.test.xxxx" />
 
                 <category android:name="com.test.xxxx" />
-                <category android:name="android.intent.category.DEFAULT" /> <!-- 必须有这个-->
+                <category android:name="android.intent.category.DEFAULT" /> <!-- 必须有这个 -->
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.demo.TestServiceActivity" />
 
         <service
@@ -58,6 +59,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".contentprovider.TestContentProvider"
+            android:authorities="www.zw.test"
+            android:process=":com.test.p" />
     </application>
 
 </manifest>
