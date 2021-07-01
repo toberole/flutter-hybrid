@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity.demo.List_Recycler_View_Activity"></activity>
+        <activity android:name=".mv_x.mvp.MVPActivity"></activity>
+        <activity android:name=".activity.demo.List_Recycler_View_Activity" />
         <activity android:name=".activity.demo.TaskActivity" />
         <activity
             android:name=".activity.demo.LifeCycleActivity"
