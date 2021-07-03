@@ -41,4 +41,9 @@ class List_Recycler_View_Activity : AppCompatActivity(), View.OnClickListener {
         Log.i("pointerCount","pointerCount: ${ev?.pointerCount}")
         return super.dispatchTouchEvent(ev)
     }
+
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+
+    }
 }

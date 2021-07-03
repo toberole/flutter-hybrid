@@ -1,5 +1,6 @@
 package com.zw.android_flutter.test1;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -13,10 +14,16 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.zw.android_flutter.R;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import dalvik.system.DexClassLoader;
 import dalvik.system.PathClassLoader;
@@ -27,6 +34,8 @@ public class Test5 {
     }
 
     private void test1() {
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+
         HandlerThread handlerThread = new HandlerThread("com.test.zw");
         handlerThread.start();
         Handler handler = new Handler(handlerThread.getLooper());
@@ -37,6 +46,23 @@ public class Test5 {
 
         Intent intent = null;
 
+        Activity activity = null;
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+
+        View v = null;
+        v.post(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+
+        View.OnTouchListener onTouchListener;
 
         Context context = null;
 //        context.getContentResolver().update()
@@ -47,10 +73,18 @@ public class Test5 {
 
         Looper.myLooper();
         Looper.prepare();
-        Handler handler1 = new Handler();
+        Looper.loop();
+        Handler handler1 = new Handler() {
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+            }
+        };
         handler.post(null);
         Message message = Message.obtain();
         //
+
+
     }
 
     private void test2() {

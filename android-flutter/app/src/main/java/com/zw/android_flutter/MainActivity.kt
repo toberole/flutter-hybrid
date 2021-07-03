@@ -1,31 +1,36 @@
 package com.zw.android_flutter
 
-import android.content.Context
-import android.content.Intent
+
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.view.View
+import android.content.Intent
+import android.os.Environment
+import android.content.Context
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import java.io.File
+import kotlinx.android.synthetic.main.activity_main.*
 import com.zw.android_flutter.activity.demo.*
 import com.zw.android_flutter.activity.flutter.FlutterActivity1
 import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
 import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
-import java.io.File
-import kotlinx.android.synthetic.main.activity_main.*
+import com.zw.android_flutter.test1.Test6
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         BuildConfig.APPLICATION_ID
 //        // 设置全屏模式
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 //        // 去除标题栏
 //        requestWindowFeature(Window.FEATURE_NO_TITLE)
-
+        App.getCtx()
         setContentView(R.layout.activity_main)
+        test()
+        Test6.test1()
 
         btn_FlutterActivity1.setOnClickListener(this)
         btn_MethodChannelDemoActivity.setOnClickListener(this)
@@ -36,15 +41,32 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_LifeCycleActivity.setOnClickListener(this)
         btn_TaskActivity.setOnClickListener(this)
         btn_List_Recycler_Activity.setOnClickListener(this)
+        btn_Demo3Activity.setOnClickListener(this)
+
+
+    }
+
+    private fun test() {
+
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-
-            R.id.btn_List_Recycler_Activity -> {
-                var i = Intent(this@MainActivity, List_Recycler_View_Activity::class.java)
+            R.id.btn_Demo3Activity -> {
+                var i = Intent(this@MainActivity, Demo3Activity::class.java)
                 this@MainActivity.startActivity(i)
             }
+
+            R.id.btn_List_Recycler_Activity -> {
+                var i = Intent(App.ctx, List_Recycler_View_Activity::class.java)
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                App.ctx?.startActivity(i)
+            }
+
+//            R.id.btn_List_Recycler_Activity -> {
+//                var i = Intent(this@MainActivity, List_Recycler_View_Activity::class.java)
+//                this@MainActivity.startActivity(i)
+//            }
 
             R.id.btn_TaskActivity -> {
                 var i = Intent(this@MainActivity, TaskActivity::class.java)
@@ -127,4 +149,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         ctx.startActivity(intent)
     }
+
+
 }

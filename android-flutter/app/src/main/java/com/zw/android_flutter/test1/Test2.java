@@ -8,4 +8,8 @@ public class Test2 {
         Object o = new Object();
         PhantomReference<Object> po = new PhantomReference<>(o, new ReferenceQueue<>());
     }
+
+    public static void test2() {
+
+    }
 } 
