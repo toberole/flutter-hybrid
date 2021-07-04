@@ -37,7 +37,7 @@ public class Test6 {
         local.set("hello");
         local.get();
 
-        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>(10, 0.75, tr)
+        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>(10, 0.75f, true);
         map.put("hello1", "world1");
         map.put("hello2", "world1");
 

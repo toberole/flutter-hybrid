@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.multidex.MultiDex
 import io.flutter.embedding.engine.FlutterEngineGroup
-import leakcanary.LeakCanary
 
 class App : Application(), Application.ActivityLifecycleCallbacks {
     companion object {
