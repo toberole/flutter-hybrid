@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity.demo.Demo3Activity"></activity>
+        <activity android:name=".activity.demo.SortActivity"></activity>
+        <activity android:name=".activity.demo.Demo3Activity" />
         <activity android:name=".mv_x.mvp.MVPActivity" />
         <activity android:name=".activity.demo.List_Recycler_View_Activity" />
         <activity android:name=".activity.demo.TaskActivity" />
@@ -37,7 +38,7 @@
             android:enabled="true"
             android:exported="true"
             android:process="com.xxx.test.aaa" />
-        <service android:name=".activity.demo.CheckServicesForApps" />
+        <service android:name=".activity.demo.CheckServicesForApps"></service>
 
         <activity android:name=".activity.demo.TestFragmentActivity" />
         <activity android:name=".activity.demo.Demo2Activity" />
