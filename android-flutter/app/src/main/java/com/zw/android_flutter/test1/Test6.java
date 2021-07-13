@@ -1,6 +1,9 @@
 package com.zw.android_flutter.test1;
 
+import android.content.Context;
 import android.util.Log;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -76,5 +79,14 @@ public class Test6 {
     private void test2() {
         WeakHashMap<String, String> weakHashMap = new WeakHashMap<>();
         weakHashMap.put("Hello", "World!");
+
+        Context context = null;
+        // 注意在ViewPager中 如果不同页面中的RecyclerView具有相同的布局结构
+        // 可以在不同页面之间公用RecycledViewPool做优化
+        RecyclerView recyclerView1 = new RecyclerView(context);
+        RecyclerView.RecycledViewPool recycledViewPool = recyclerView1.getRecycledViewPool();
+        RecyclerView recyclerView2 = new RecyclerView(context);
+        // recyclerView1 与 recyclerView2 公用recycledViewPool
+        recyclerView2.setRecycledViewPool(recycledViewPool);
     }
 } 
