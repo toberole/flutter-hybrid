@@ -10,7 +10,9 @@ import android.content.Context
 import android.os.Looper
 import android.util.Log
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import java.io.File
 import kotlinx.android.synthetic.main.activity_main.*
@@ -32,7 +34,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        BuildConfig.APPLICATION_ID
+        val applicationId = BuildConfig.APPLICATION_ID
+
+        ActivityCompat.requestPermissions(this@MainActivity, Constant.PS, 110)
 //        // 设置全屏模式
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 //        // 去除标题栏
@@ -54,6 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_Demo3Activity.setOnClickListener(this)
         btn_SortActivity.setOnClickListener(this)
         btn_NativeActivity.setOnClickListener(this)
+        btn_OKHttpActivity.setOnClickListener(this)
 
 
     }
@@ -78,6 +83,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
+
+            R.id.btn_OKHttpActivity -> {
+                var i = Intent(this@MainActivity, OKHttpActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
 
             R.id.btn_NativeActivity -> {
                 var i = Intent(this@MainActivity, NativeActivity::class.java)
