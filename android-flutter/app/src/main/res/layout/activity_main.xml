@@ -2,10 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sv_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:id="@+id/sv_container"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -119,6 +119,15 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="SortActivity"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_NativeActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="NativeActivity"
             android:textAllCaps="false" />
 
 

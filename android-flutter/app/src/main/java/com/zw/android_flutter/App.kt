@@ -20,6 +20,10 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
         fun getCtx(): Context? {
             return ctx
         }
+
+        init {
+            System.loadLibrary("native-lib")
+        }
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -78,4 +82,6 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
     override fun onActivityDestroyed(activity: Activity) {
         Log.i(TAG, "onActivityDestroyed: $activity")
     }
+
+
 }

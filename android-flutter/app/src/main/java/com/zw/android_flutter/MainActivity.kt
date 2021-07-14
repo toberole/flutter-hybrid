@@ -7,6 +7,7 @@ import android.view.View
 import android.content.Intent
 import android.os.Environment
 import android.content.Context
+import android.os.Looper
 import android.util.Log
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_List_Recycler_Activity.setOnClickListener(this)
         btn_Demo3Activity.setOnClickListener(this)
         btn_SortActivity.setOnClickListener(this)
+        btn_NativeActivity.setOnClickListener(this)
 
 
     }
@@ -76,6 +78,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
+
+            R.id.btn_NativeActivity -> {
+                var i = Intent(this@MainActivity, NativeActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
             R.id.btn_SortActivity -> {
                 var i = Intent(this@MainActivity, SortActivity::class.java)
                 this@MainActivity.startActivity(i)
@@ -184,6 +191,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         GlobalScope.launch(Dispatchers.IO) {
             printView(sv_container)
         }
+    }
+
+    private fun test1() {
+        Thread {
+            Looper.prepare()
+            Looper.prepare()
+        }.start()
     }
 
     fun printView(v: View) {
