@@ -11,6 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.zw.mylibrary2.CircleTransformation
 import com.zw.mylibrary2.R
 import kotlinx.android.synthetic.main.activity_glide.*
 
@@ -30,6 +31,7 @@ class GlideActivity : AppCompatActivity() {
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_background)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
+            .transform(CircleTransformation())
             .into(iv_test)
 
         // Glide.with(this).load(url)
