@@ -33,6 +33,13 @@
             android:text="MyLifecycleActivity"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_MyLifecycleRegistryActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MyLifecycleRegistryActivity"
+            android:textAllCaps="false" />
+
 
     </LinearLayout>
 </ScrollView>

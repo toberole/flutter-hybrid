@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat
 import com.zw.mylibrary2.activity1.DiskLruCacheActivity
 import com.zw.mylibrary2.activity1.GlideActivity
 import com.zw.mylibrary2.activity1.MyLifecycleActivity
+import com.zw.mylibrary2.activity1.MyLifecycleRegistryActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_GlideActivity.setOnClickListener(this)
         btn_DiskLruCacheActivity.setOnClickListener(this)
         btn_MyLifecycleActivity.setOnClickListener(this)
+        btn_MyLifecycleRegistryActivity.setOnClickListener(this)
 
 
     }
