@@ -22,6 +22,7 @@ class MyLifecycleActivity : AppCompatActivity() {
             super.onCreate(owner)
             Log.i(TAG, "MyDefaultLifecycleObserver#onCreate ......")
         }
+
         override fun onStart(owner: LifecycleOwner) {
             super.onStart(owner)
             Log.i(TAG, "MyDefaultLifecycleObserver#onStart ......")
