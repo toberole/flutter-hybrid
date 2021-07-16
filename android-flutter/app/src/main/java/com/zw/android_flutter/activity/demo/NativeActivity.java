@@ -27,6 +27,14 @@ public class NativeActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_test1:
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        test_xxx();
+                    }
+                }, "Hello").start();
+
                 Log.i(TAG, "s: " + native_test1("Hello"));
                 break;
             case R.id.btn_test1_register:
@@ -35,6 +43,16 @@ public class NativeActivity extends AppCompatActivity implements View.OnClickLis
             default:
                 break;
         }
+    }
+
+    private void test_xxx() {
+        try {
+            Thread.sleep(1000 * 2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Log.i(TAG, "test_xxx ......");
     }
 
     private static native String native_test1(String s);

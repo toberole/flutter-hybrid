@@ -1,7 +1,11 @@
 package com.zw.mylibrary.test1;
 
+import android.os.Environment;
 import android.util.Log;
 
+import com.jakewharton.disklrucache.DiskLruCache;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,5 +26,15 @@ public class Test1 {
 
         Map<String, String> map = new HashMap<>();
         map.put("Hello", "World!");
+    }
+
+    public void test2() {
+        try {
+            DiskLruCache diskLruCache = DiskLruCache.open(Environment.getExternalStorageDirectory(),
+                    1, 1, 100);
+            diskLruCache.edit()
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 } 
