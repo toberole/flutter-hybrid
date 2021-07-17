@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
-import com.zw.mylibrary2.activity1.DiskLruCacheActivity
-import com.zw.mylibrary2.activity1.GlideActivity
-import com.zw.mylibrary2.activity1.MyLifecycleActivity
-import com.zw.mylibrary2.activity1.MyLifecycleRegistryActivity
+import com.zw.mylibrary2.activity1.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -28,12 +25,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_DiskLruCacheActivity.setOnClickListener(this)
         btn_MyLifecycleActivity.setOnClickListener(this)
         btn_MyLifecycleRegistryActivity.setOnClickListener(this)
+        btn_LiveDataActivity.setOnClickListener(this)
+        btn_ViewModelActivity.setOnClickListener(this)
 
 
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
+
+
+            R.id.btn_ViewModelActivity -> {
+                var i = Intent(this, ViewModelActivity::class.java)
+                startActivity(i)
+            }
+            R.id.btn_LiveDataActivity -> {
+                var i = Intent(this, LiveDataActivity::class.java)
+                startActivity(i)
+            }
             R.id.btn_GlideActivity -> {
                 var i = Intent(this, GlideActivity::class.java)
                 startActivity(i)

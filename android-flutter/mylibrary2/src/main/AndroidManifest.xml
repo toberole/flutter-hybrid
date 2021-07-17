@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity1.MyLifecycleRegistryActivity"></activity>
+        <activity android:name=".activity1.ViewModelActivity"></activity>
+        <activity android:name=".activity1.LiveDataActivity" />
+        <activity android:name=".activity1.MyLifecycleRegistryActivity" />
         <activity android:name=".activity1.MyLifecycleActivity" />
         <activity android:name=".activity1.GlideActivity" />
         <activity android:name=".activity1.DiskLruCacheActivity" />

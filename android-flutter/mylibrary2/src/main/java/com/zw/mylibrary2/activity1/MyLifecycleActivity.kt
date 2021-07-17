@@ -6,6 +6,14 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.zw.mylibrary2.R
 
+/**
+ * lifecycle state
+ * 五种状态：
+ *      DESTROYED,INITIALIZED,CREATED,STARTED,RESUMED;
+ *
+ * 七种事件：
+ *      ON_CREATE, ON_START,ON_RESUME,ON_PAUSE,ON_STOP,ON_DESTROY,ON_ANY;
+ */
 class MyLifecycleActivity : AppCompatActivity() {
     private var TAG = "MyLifecycleActivity-xxx"
 
@@ -15,12 +23,16 @@ class MyLifecycleActivity : AppCompatActivity() {
 //        lifecycle.addObserver(MyLifecycleObserver())
         lifecycle.addObserver(MyDefaultLifecycleObserver())
         Log.i(TAG, "MyLifecycleActivity#onCreate ......")
+
+        Lifecycle.State.CREATED
+        Lifecycle.Event.ON_CREATE
     }
 
     override fun onStart() {
         super.onStart()
 //        lifecycle.addObserver(MyDefaultLifecycleObserver())
     }
+
     private inner class MyDefaultLifecycleObserver : DefaultLifecycleObserver {
         override fun onCreate(owner: LifecycleOwner) {
             super.onCreate(owner)
