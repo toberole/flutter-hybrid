@@ -12,20 +12,29 @@ class MyLifecycleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_lifecycle)
-        lifecycle.addObserver(MyLifecycleObserver())
+//        lifecycle.addObserver(MyLifecycleObserver())
         lifecycle.addObserver(MyDefaultLifecycleObserver())
         Log.i(TAG, "MyLifecycleActivity#onCreate ......")
     }
 
+    override fun onStart() {
+        super.onStart()
+//        lifecycle.addObserver(MyDefaultLifecycleObserver())
+    }
     private inner class MyDefaultLifecycleObserver : DefaultLifecycleObserver {
         override fun onCreate(owner: LifecycleOwner) {
             super.onCreate(owner)
-            Log.i(TAG, "MyDefaultLifecycleObserver#onCreate ......")
+            Log.i(TAG, "MyDefaultLifecycleObserver#onCreate ......${owner.lifecycle.currentState}")
+        }
+
+        override fun onResume(owner: LifecycleOwner) {
+            super.onResume(owner)
+            Log.i(TAG, "MyDefaultLifecycleObserver#onResume ......${owner.lifecycle.currentState}")
         }
 
         override fun onStart(owner: LifecycleOwner) {
             super.onStart(owner)
-            Log.i(TAG, "MyDefaultLifecycleObserver#onStart ......")
+            Log.i(TAG, "MyDefaultLifecycleObserver#onStart ......${owner.lifecycle.currentState}")
         }
     }
 

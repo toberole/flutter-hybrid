@@ -24,8 +24,9 @@ class MyLifecycleRegistryActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initLifecycleRegistry() {
         lifecycleRegistry = LifecycleRegistry(this)
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
         lifecycleRegistry.addObserver(OB())
+        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
+
     }
 
     override fun onClick(v: View?) {
