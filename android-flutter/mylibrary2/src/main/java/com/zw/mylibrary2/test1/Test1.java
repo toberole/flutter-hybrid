@@ -34,6 +34,8 @@ public class Test1 {
 
         ListView listView = null;
         listView.setAdapter(null);
+        
+
     }
 
     private class MyAdapter extends RecyclerView.Adapter<VH> {
