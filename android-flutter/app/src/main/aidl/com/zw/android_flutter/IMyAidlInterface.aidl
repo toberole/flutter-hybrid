@@ -1,16 +1,18 @@
 // IMyAidlInterface.aidl
 package com.zw.android_flutter;
 
-// Declare any non-default types here with import statements
+import com.zw.android_flutter.Student;
 
 interface IMyAidlInterface {
-    /**
-     * Demonstrates some basic types that you can use as parameters
-     * and return values in AIDL.
-     */
-    void basicTypes(int anInt, long aLong, boolean aBoolean,
-        float aFloat,double aDouble, String aString);
+    void basicTypes(
+        int anInt, long aLong,
+        boolean aBoolean,float aFloat,
+        double aDouble, String aString
+    );
 
-        void test1();
-        String test2();
+    void test1();
+
+    String test2();
+
+    void test3(out Student s);
 }

@@ -4,6 +4,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import com.zw.android_flutter.IMyAidlInterface;
+import com.zw.android_flutter.Student;
 
 public class IMyAidlInterfaceImpl extends IMyAidlInterface.Stub {
     public static final String TAG = IMyAidlInterfaceImpl.class.getSimpleName();
@@ -21,6 +22,11 @@ public class IMyAidlInterfaceImpl extends IMyAidlInterface.Stub {
     @Override
     public String test2() throws RemoteException {
         return "hello test2";
+    }
+
+    @Override
+    public void test3(Student s) throws RemoteException {
+        s.age = 11;
     }
 
     private static final IMyAidlInterfaceImpl ourInstance = new IMyAidlInterfaceImpl();

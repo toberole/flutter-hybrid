@@ -22,6 +22,7 @@ import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
 import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
 import com.zw.android_flutter.arithmetic.*
 import com.zw.android_flutter.test1.*
+import com.zw.android_flutter.test2.Test1
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -59,6 +60,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_SortActivity.setOnClickListener(this)
         btn_NativeActivity.setOnClickListener(this)
         btn_OKHttpActivity.setOnClickListener(this)
+        btn_ELFActivity.setOnClickListener(this)
+        btn_ProfilerActivity.setOnClickListener(this)
 
 
     }
@@ -79,11 +82,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            // Test9.test1()
 //            ConTest.test()
 //        }.start()
+
+        Test1.test1()
+
+        Log.i("test1-class", "${Test1::class.java}")
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
 
+            R.id.btn_ProfilerActivity -> {
+                var i = Intent(this@MainActivity, ProfilerActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+            R.id.btn_ELFActivity -> {
+                var i = Intent(this@MainActivity, ELFActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
             R.id.btn_OKHttpActivity -> {
                 var i = Intent(this@MainActivity, OKHttpActivity::class.java)
                 this@MainActivity.startActivity(i)

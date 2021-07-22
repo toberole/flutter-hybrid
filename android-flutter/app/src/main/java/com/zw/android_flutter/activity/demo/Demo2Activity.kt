@@ -18,6 +18,7 @@ import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter.IMyAidlInterface
 import com.zw.android_flutter.R
+import com.zw.android_flutter.Student
 import com.zw.android_flutter.service.IMyAidlInterfaceService
 import kotlinx.android.synthetic.main.activity_demo2.*
 
@@ -102,8 +103,12 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
                 bindService(intent, object : ServiceConnection {
                     override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
                         binder = IMyAidlInterface.Stub.asInterface(service)
-                        var str = binder.test2()
-                        Log.i("IMyAidlInterfaceService", "IMyAidlInterfaceService test2 ret: $str")
+//                        var str = binder.test2()
+//                        Log.i("IMyAidlInterfaceService", "IMyAidlInterfaceService test2 ret: $str")
+                        var stu = Student()
+                        stu.age = 0
+                        binder.test3(stu)
+                        Log.i("IMyAidlInterfaceService", "IMyAidlInterfaceService test3 ret: $stu")
                     }
 
                     override fun onServiceDisconnected(name: ComponentName?) {

@@ -16,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
+        <activity android:name=".activity.demo.ProfilerActivity"></activity>
+        <activity android:name=".activity.demo.ELFActivity" />
         <activity android:name=".activity.demo.OKHttpActivity" />
         <activity android:name=".activity.demo.NativeActivity" />
         <activity android:name=".activity.demo.SortActivity" />

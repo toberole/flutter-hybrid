@@ -27,13 +27,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_MyLifecycleRegistryActivity.setOnClickListener(this)
         btn_LiveDataActivity.setOnClickListener(this)
         btn_ViewModelActivity.setOnClickListener(this)
+        btn_RecycleViewActivity.setOnClickListener(this)
 
 
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-
+            R.id.btn_RecycleViewActivity -> {
+                var i = Intent(this, RecycleViewActivity::class.java)
+                startActivity(i)
+            }
 
             R.id.btn_ViewModelActivity -> {
                 var i = Intent(this, ViewModelActivity::class.java)
