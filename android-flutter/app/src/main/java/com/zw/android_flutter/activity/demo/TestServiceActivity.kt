@@ -3,76 +3,131 @@ package com.zw.android_flutter.activity.demo
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.PixelFormat
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
+import android.provider.Settings
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import android.view.WindowManager
+import android.widget.Button
+import androidx.annotation.Nullable
+import androidx.appcompat.app.AppCompatActivity
+import com.zw.android_flutter.IMyAidlInterface
 import com.zw.android_flutter.R
-import com.zw.android_flutter.service.MyService
-import kotlinx.android.synthetic.main.activity_test_service.*
+import com.zw.android_flutter.Student
+import com.zw.android_flutter.service.IMyAidlInterfaceService
+import kotlinx.android.synthetic.main.activity_demo2.*
 
 class TestServiceActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var binder: IMyAidlInterface
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test_service)
+        setContentView(R.layout.activity_demo2)
+        btn_test1.setOnClickListener(this)
+        btn_test2.setOnClickListener(this)
+        btn_test3.setOnClickListener(this)
 
-        btn_start.setOnClickListener(this)
-        btn_stop.setOnClickListener(this)
+        Log.i("TestServiceActivity-xxx", Build.VERSION.SDK)
 
-        btn_bind1.setOnClickListener(this)
-        btn_unbind1.setOnClickListener(this)
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                val intent = Intent(
+                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:$packageName")
+                )
+                startActivityForResult(intent, 1234)
+            }
+        } else {
+            startService(
+                Intent(
+                    this@TestServiceActivity,
+                    CheckServicesForApps::class.java
+                )
+            )
+        }
+    }
 
-        btn_bind2.setOnClickListener(this)
-        btn_unbind2.setOnClickListener(this)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1234) {
+            startService(
+                Intent(
+                    this@TestServiceActivity,
+                    CheckServicesForApps::class.java
+                )
+            )
+        }
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_start -> {
-                var i = Intent(this@TestServiceActivity, MyService::class.java)
-                startService(i)
+            R.id.btn_test1 -> {
+                var btn = Button(this@TestServiceActivity)
+                btn.setText("hello btn")
+
+                val LAYOUT_FLAG: Int
+                LAYOUT_FLAG = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+                } else {
+                    WindowManager.LayoutParams.TYPE_PHONE
+                }
+
+
+                var p = WindowManager.LayoutParams(
+                    WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT,
+                    LAYOUT_FLAG,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                    PixelFormat.TRANSLUCENT
+                )
+
+                p.gravity = Gravity.TOP
+
+                p.x = 100
+                p.y = 300
+                windowManager.addView(btn, p)
             }
 
-            R.id.btn_stop -> {
-                var i = Intent(this@TestServiceActivity, MyService::class.java)
-                stopService(i)
+            R.id.btn_test2 -> {
+                var intent = Intent(this, IMyAidlInterfaceService::class.java)
+                startService(intent)
             }
 
-            R.id.btn_bind1 -> {
-                Log.i("MyService", "btn_bind1 ......")
-
-                var i = Intent(this@TestServiceActivity, MyService::class.java)
-                bindService(i, object : ServiceConnection {
+            R.id.btn_test3 -> {
+                var intent = Intent(this, IMyAidlInterfaceService::class.java)
+                bindService(intent, object : ServiceConnection {
                     override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+                        binder = IMyAidlInterface.Stub.asInterface(service)
+//                        var str = binder.test2()
+//                        Log.i("IMyAidlInterfaceService", "IMyAidlInterfaceService test2 ret: $str")
+                        var stu = Student()
+                        stu.age = 0
+                        binder.test3(stu)
+                        Log.i("IMyAidlInterfaceService", "IMyAidlInterfaceService test3 ret: $stu")
                     }
 
                     override fun onServiceDisconnected(name: ComponentName?) {
+
                     }
                 }, BIND_AUTO_CREATE)
-            }
-
-            R.id.btn_unbind1 -> {
-
-            }
-
-            R.id.btn_bind2 -> {
-                Log.i("MyService", "btn_bind2 ......")
-
-                var i = Intent(this@TestServiceActivity, MyService::class.java)
-                bindService(i, object : ServiceConnection {
-                    override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-
-                    }
-
-                    override fun onServiceDisconnected(name: ComponentName?) {
-                    }
-                }, BIND_AUTO_CREATE)
-            }
-
-            R.id.btn_unbind2 -> {
-
             }
         }
+    }
+
+    private fun test() {
+        startActivityForResult(null, 110)
+        setResult(110)
+        var intent: Intent? = null
+        setResult(110, intent)
+    }
+
+    @JvmName("onActivityResult1")
+    protected fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

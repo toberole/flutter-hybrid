@@ -10,7 +10,6 @@ import android.content.Context
 import android.os.Looper
 import android.util.Log
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
@@ -171,7 +170,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_Demo2Activity -> {
-                var i = Intent(this@MainActivity, Demo2Activity::class.java)
+                var i = Intent(this@MainActivity, TestServiceActivity::class.java)
                 this@MainActivity.startActivity(i)
             }
 

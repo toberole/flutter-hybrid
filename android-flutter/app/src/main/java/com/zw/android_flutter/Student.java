@@ -3,6 +3,11 @@ package com.zw.android_flutter;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * 注意 对应aidl文件名称 必须是Student.aidl
+ * <p>
+ * Student类 和 Student.aidl 必须在相同的包下面
+ */
 public class Student implements Parcelable {
     public int age;
     public float score;

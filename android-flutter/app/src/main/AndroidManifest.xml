@@ -49,7 +49,7 @@
         <service android:name=".activity.demo.CheckServicesForApps" />
 
         <activity android:name=".activity.demo.TestFragmentActivity" />
-        <activity android:name=".activity.demo.Demo2Activity" />
+        <activity android:name=".activity.demo.TestServiceActivity" />
         <activity
             android:name=".activity.demo.Demo1Activity"
             android:launchMode="singleTop">
