@@ -1,7 +1,9 @@
+#include <android/log.h>
 #include <jni.h>
 #include <string>
+
 #include "register.h"
-#include <android/log.h>
+#include "Singleton.h"
 
 JavaVM *g_vm;
 
@@ -16,6 +18,11 @@ static JNINativeMethod method[] = {
 __attribute__((constructor)) void load_file() {
     __android_log_print(ANDROID_LOG_INFO, "test", "@@@@@@ Constructor is called ......");
     int *g_count = (int *) malloc(sizeof(int));
+}
+
+void native_lib_test1() {
+    Singleton *singleton = Singleton::getInstance();
+    singleton->printfInfo();
 }
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
