@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".activity.demo.ProfilerActivity"></activity>
+        <activity android:name=".activity.demo.ProfilerActivity" />
         <activity android:name=".activity.demo.ELFActivity" />
         <activity android:name=".activity.demo.OKHttpActivity" />
         <activity android:name=".activity.demo.NativeActivity" />
@@ -25,12 +25,15 @@
         <activity android:name=".mv_x.mvp.MVPActivity" />
         <activity android:name=".activity.demo.List_Recycler_View_Activity" />
         <activity android:name=".activity.demo.TaskActivity" />
+        <activity android:name=".activity.flutter.FlutterEngineGroupActivity" />
+        <activity android:name=".activity.flutter.MethodChannelDemoActivity" />
+        <activity android:name=".activity.flutter.FlutterActivity1" />
+
         <activity
             android:name=".activity.demo.LifeCycleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.test.xxxx" />
-
                 <category android:name="com.test.xxxx" />
                 <category android:name="android.intent.category.DEFAULT" /> <!-- 必须有这个 -->
             </intent-filter>
@@ -60,13 +63,9 @@
                 <category android:name="com.zw.test.category" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.flutter.FlutterEngineGroupActivity" />
-        <activity android:name=".activity.flutter.MethodChannelDemoActivity" />
-        <activity android:name=".activity.flutter.FlutterActivity1" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

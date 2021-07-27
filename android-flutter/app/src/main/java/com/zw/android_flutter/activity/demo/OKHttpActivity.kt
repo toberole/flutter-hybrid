@@ -11,15 +11,22 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.internal.cache.DiskLruCache
-import okhttp3.internal.http.RealResponseBody
-import okio.Buffer
-import okio.BufferedSource
 import java.io.IOException
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
+/**
+ * OKhttp使用到的设计模式
+ * 外观模式。通过okHttpClient这个外观去实现内部各种功能。
+ * 建造者模式。构建不同的Request对象。
+ * 工厂模式。通过OkHttpClient生产出产品RealCall。
+ * 享元模式。通过线程池、连接池共享对象。
+ * 责任链模式。将不同功能的拦截器形成一个链。
+ *
+ * websocket相关用到的观察者模式。
+ * Cache集合相关的迭代器模式。
+ */
 class OKHttpActivity : AppCompatActivity(), View.OnClickListener {
     private var TAG = OKHttpActivity::class.java.simpleName
 
@@ -38,8 +45,6 @@ class OKHttpActivity : AppCompatActivity(), View.OnClickListener {
     fun test(name: String, block: () -> Unit) {
         Log.i("net-xxx", "name: $name")
         block()
-
-
     }
 
     override fun onClick(v: View?) {
@@ -50,12 +55,15 @@ class OKHttpActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 sync_get()
             }
+
             R.id.btn_async_get -> {
                 async_get()
             }
+
             R.id.btn_sync_post -> {
                 sync_post()
             }
+
             R.id.btn_async_post -> {
                 async_post()
             }

@@ -124,6 +124,8 @@ class TestServiceActivity : AppCompatActivity(), View.OnClickListener {
         setResult(110)
         var intent: Intent? = null
         setResult(110, intent)
+
+        startActivity(intent)
     }
 
     @JvmName("onActivityResult1")

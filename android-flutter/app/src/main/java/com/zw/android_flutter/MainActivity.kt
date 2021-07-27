@@ -9,6 +9,7 @@ import android.os.Environment
 import android.content.Context
 import android.os.Looper
 import android.util.Log
+import android.view.Choreographer
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -27,10 +28,12 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, Choreographer.FrameCallback {
     companion object {
         var TAG = MainActivity::class.java.simpleName + "-xxx"
     }
+
+    private var time: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         Thread { test() }.start()
-
+        Choreographer.getInstance().postFrameCallback(this)
         btn_FlutterActivity1.setOnClickListener(this)
         btn_MethodChannelDemoActivity.setOnClickListener(this)
         btn_Demo1Activity.setOnClickListener(this)
@@ -63,9 +66,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_ProfilerActivity.setOnClickListener(this)
 
 
+
     }
 
     private fun test() {
+
+
         var i = Solution5.hammingWeight(15)
         Log.i(TAG, "i: $i")
 //        Log.i(TAG, "jump2: ${ Solution4.jump2(50)}")
@@ -133,13 +139,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_LifeCycleActivity -> {
-//                var i = Intent(this@MainActivity, LifeCycleActivity::class.java)
-//                this@MainActivity.startActivity(i)
-
-                var i = Intent()
-                i.setAction("com.test.xxxx")
-                i.addCategory("com.test.xxxx")
+                var i = Intent(this@MainActivity, LifeCycleActivity::class.java)
                 this@MainActivity.startActivity(i)
+
+//                var i = Intent()
+//                i.setAction("com.test.xxxx")
+//                i.addCategory("com.test.xxxx")
+//                this@MainActivity.startActivity(i)
             }
 
             R.id.btn_TestServiceActivity -> {
@@ -241,5 +247,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    override fun doFrame(frameTimeNanos: Long) {
+        if (time == 0L) {
+            time = frameTimeNanos
+        }
+        var v = frameTimeNanos - time
+        Log.i("postFrameCallback", "postFrameCallback ${v / 1_000_000 / 1_000}......")
+        Choreographer.getInstance().postFrameCallback(this)
     }
 }
