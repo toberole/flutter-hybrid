@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.HashMap;
 
 public class Test1 {
+    public static void test1() {
+
+    }
+
     public void test() {
         Context context = null;
         Intent intent = new Intent();

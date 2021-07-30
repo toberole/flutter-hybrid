@@ -9,8 +9,8 @@ import android.os.Environment
 import android.content.Context
 import android.os.Looper
 import android.util.Log
+import android.view.Choreographer
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
@@ -22,12 +22,13 @@ import com.zw.android_flutter.activity.flutter.FlutterEngineGroupActivity
 import com.zw.android_flutter.activity.flutter.MethodChannelDemoActivity
 import com.zw.android_flutter.arithmetic.*
 import com.zw.android_flutter.test1.*
+import com.zw.android_flutter.test2.Test1
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, Choreographer.FrameCallback {
     companion object {
         var TAG = MainActivity::class.java.simpleName + "-xxx"
     }
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         Thread { test() }.start()
-
+        Choreographer.getInstance().postFrameCallback(this)
         btn_FlutterActivity1.setOnClickListener(this)
         btn_MethodChannelDemoActivity.setOnClickListener(this)
         btn_Demo1Activity.setOnClickListener(this)
@@ -61,11 +62,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_OKHttpActivity.setOnClickListener(this)
         btn_STLActivity.setOnClickListener(this)
         btn_CPPActivity.setOnClickListener(this)
+        btn_ELFActivity.setOnClickListener(this)
+        btn_ProfilerActivity.setOnClickListener(this)
+
 
 
     }
 
     private fun test() {
+
+
         var i = Solution5.hammingWeight(15)
         Log.i(TAG, "i: $i")
 //        Log.i(TAG, "jump2: ${ Solution4.jump2(50)}")
@@ -81,11 +87,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            // Test9.test1()
 //            ConTest.test()
 //        }.start()
+
+        Test1.test1()
+
+        Log.i("test1-class", "${Test1::class.java}")
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
 
+            R.id.btn_ProfilerActivity -> {
+                var i = Intent(this@MainActivity, ProfilerActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+            R.id.btn_ELFActivity -> {
+                var i = Intent(this@MainActivity, ELFActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
                     R.id.btn_CPPActivity -> {
                 var i = Intent(this@MainActivity, CPPActivity::class.java)
                 this@MainActivity.startActivity(i)
@@ -129,13 +147,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_LifeCycleActivity -> {
-//                var i = Intent(this@MainActivity, LifeCycleActivity::class.java)
-//                this@MainActivity.startActivity(i)
-
-                var i = Intent()
-                i.setAction("com.test.xxxx")
-                i.addCategory("com.test.xxxx")
+                var i = Intent(this@MainActivity, LifeCycleActivity::class.java)
                 this@MainActivity.startActivity(i)
+
+//                var i = Intent()
+//                i.setAction("com.test.xxxx")
+//                i.addCategory("com.test.xxxx")
+//                this@MainActivity.startActivity(i)
             }
 
             R.id.btn_TestServiceActivity -> {
@@ -166,7 +184,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_Demo2Activity -> {
-                var i = Intent(this@MainActivity, Demo2Activity::class.java)
+                var i = Intent(this@MainActivity, TestServiceActivity::class.java)
                 this@MainActivity.startActivity(i)
             }
 
@@ -237,5 +255,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    override fun doFrame(frameTimeNanos: Long) {
+        if (time == 0L) {
+            time = frameTimeNanos
+        }
+        var v = frameTimeNanos - time
+        Log.i("postFrameCallback", "postFrameCallback ${v / 1_000_000 / 1_000}......")
+        Choreographer.getInstance().postFrameCallback(this)
     }
 }

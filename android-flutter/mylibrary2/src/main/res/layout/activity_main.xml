@@ -53,6 +53,12 @@
             android:layout_height="wrap_content"
             android:text="ViewModelActivity"
             android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_RecycleViewActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RecycleViewActivity"
+            android:textAllCaps="false" />
 
 
     </LinearLayout>

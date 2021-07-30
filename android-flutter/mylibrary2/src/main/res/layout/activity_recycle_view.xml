@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.demo.LifeCycleActivity">
+    tools:context=".activity1.RecycleViewActivity">
 
-    <EditText
-        android:id="@+id/et_txt"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="left|top"
-        android:hint="text" />
+        android:layout_height="match_parent"/>
+
 </LinearLayout>

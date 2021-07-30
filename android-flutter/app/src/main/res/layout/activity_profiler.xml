@@ -5,26 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.demo.TestServiceActivity">
+    tools:context=".activity.demo.ProfilerActivity">
 
     <Button
         android:id="@+id/btn_test1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="float_btn"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_test2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="start-service"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_test3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="bind-service"
+        android:text="test1"
         android:textAllCaps="false" />
 </LinearLayout>

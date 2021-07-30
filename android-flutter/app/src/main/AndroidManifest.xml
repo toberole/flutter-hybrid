@@ -22,6 +22,8 @@
         <activity
             android:name=".activity.demo.STLActivity"
             android:exported="true" />
+        <activity android:name=".activity.demo.ProfilerActivity" />
+        <activity android:name=".activity.demo.ELFActivity" />
         <activity android:name=".activity.demo.OKHttpActivity" />
         <activity android:name=".activity.demo.NativeActivity" />
         <activity android:name=".activity.demo.SortActivity" />
