@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Choreographer.Fr
         var TAG = MainActivity::class.java.simpleName + "-xxx"
     }
 
+    private var time = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val applicationId = BuildConfig.APPLICATION_ID
@@ -64,7 +66,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Choreographer.Fr
         btn_CPPActivity.setOnClickListener(this)
         btn_ELFActivity.setOnClickListener(this)
         btn_ProfilerActivity.setOnClickListener(this)
-
 
 
     }
@@ -104,7 +105,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Choreographer.Fr
                 var i = Intent(this@MainActivity, ELFActivity::class.java)
                 this@MainActivity.startActivity(i)
             }
-                    R.id.btn_CPPActivity -> {
+            R.id.btn_CPPActivity -> {
                 var i = Intent(this@MainActivity, CPPActivity::class.java)
                 this@MainActivity.startActivity(i)
             }
