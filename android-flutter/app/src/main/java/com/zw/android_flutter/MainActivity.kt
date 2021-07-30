@@ -59,6 +59,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_SortActivity.setOnClickListener(this)
         btn_NativeActivity.setOnClickListener(this)
         btn_OKHttpActivity.setOnClickListener(this)
+        btn_STLActivity.setOnClickListener(this)
+        btn_CPPActivity.setOnClickListener(this)
 
 
     }
@@ -84,6 +86,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
 
+                    R.id.btn_CPPActivity -> {
+                var i = Intent(this@MainActivity, CPPActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
+            R.id.btn_STLActivity -> {
+                var i = Intent(this@MainActivity, STLActivity::class.java)
+                this@MainActivity.startActivity(i)
+            }
             R.id.btn_OKHttpActivity -> {
                 var i = Intent(this@MainActivity, OKHttpActivity::class.java)
                 this@MainActivity.startActivity(i)

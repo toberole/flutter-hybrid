@@ -16,6 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
+        <activity
+            android:name=".activity.demo.CPPActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.demo.STLActivity"
+            android:exported="true" />
         <activity android:name=".activity.demo.OKHttpActivity" />
         <activity android:name=".activity.demo.NativeActivity" />
         <activity android:name=".activity.demo.SortActivity" />
