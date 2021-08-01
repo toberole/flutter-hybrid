@@ -9,6 +9,14 @@ extern "C" {
 #endif
 /*
  * Class:     com_zw_android_flutter_activity_demo_STLActivity
+ * Method:    test_dequeue
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_STLActivity_test_1dequeue
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     com_zw_android_flutter_activity_demo_STLActivity
  * Method:    test_btn_vector_list
  * Signature: ()V
  */

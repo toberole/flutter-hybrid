@@ -7,6 +7,24 @@
 #include <unordered_map>
 #include <string>
 #include <android/log.h>
+#include <deque>
+
+/*
+ * Class:     com_zw_android_flutter_activity_demo_STLActivity
+ * Method:    test_dequeue
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_STLActivity_test_1dequeue
+        (JNIEnv *env, jclass jclazz) {
+    std::deque<int> deque;
+    deque.push_back(1);
+    deque.push_back(2);
+    deque.insert(deque.begin(), 3);
+
+    for (auto i:deque) {
+        __android_log_print(ANDROID_LOG_INFO, "jni-log", "v: %d", i);
+    }
+}
 
 /*
  * Class:     com_zw_android_flutter_activity_demo_STLActivity

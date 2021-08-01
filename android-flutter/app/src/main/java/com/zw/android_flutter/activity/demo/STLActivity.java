@@ -19,6 +19,9 @@ public class STLActivity extends AppCompatActivity implements View.OnClickListen
         btn.setOnClickListener(this);
         btn = findViewById(R.id.btn_vector_list);
         btn.setOnClickListener(this);
+        btn = findViewById(R.id.btn_dequeue);
+        btn.setOnClickListener(this);
+
 
     }
 
@@ -31,11 +34,16 @@ public class STLActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.btn_vector_list:
                 test_btn_vector_list();
                 break;
+            case R.id.btn_dequeue:
+                test_dequeue();
+                break;
 
             default:
 
         }
     }
+
+    private static native void test_dequeue();
 
     private static native void test_btn_vector_list();
 
