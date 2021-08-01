@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_lock
   (JNIEnv *, jclass);
 
+/*
+ * Class:     com_zw_android_flutter_activity_demo_CPPActivity
+ * Method:    closure
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_closure
+  (JNIEnv *, jclass);
+
 #ifdef __cplusplus
 }
 #endif

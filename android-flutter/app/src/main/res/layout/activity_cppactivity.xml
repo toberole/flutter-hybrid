@@ -19,5 +19,12 @@
             android:layout_height="wrap_content"
             android:text="lock"
             android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_closure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="closure"
+            android:textAllCaps="false" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

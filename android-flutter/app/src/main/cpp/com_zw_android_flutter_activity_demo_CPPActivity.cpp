@@ -8,7 +8,7 @@
 /**
  * std::lock_guard能实现的std::unique_lock都能实现
  *
- * std::unique_lock使用更加的灵活
+ * std::unique_lock使用更加的灵活 功能更加丰富
  */
 namespace {
     int lock_i = 0;
@@ -44,4 +44,14 @@ Java_com_zw_android_1flutter_activity_demo_CPPActivity_lock(JNIEnv *env, jclass 
     task2.join();
 
     __android_log_print(ANDROID_LOG_INFO, "jni-log", "lock_i: %d", lock_i);
+}
+
+/*
+ * Class:     com_zw_android_flutter_activity_demo_CPPActivity
+ * Method:    closure
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL
+Java_com_zw_android_1flutter_activity_demo_CPPActivity_closure(JNIEnv *env, jclass jclazz) {
+    __android_log_print(ANDROID_LOG_INFO, "jni-log", "closure ......");
 }
