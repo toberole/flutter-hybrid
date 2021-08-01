@@ -46,8 +46,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Choreographer.Fr
 //        requestWindowFeature(Window.FEATURE_NO_TITLE)
         App.getCtx()
         setContentView(R.layout.activity_main)
-
         Thread { test() }.start()
+
+
         Choreographer.getInstance().postFrameCallback(this)
         btn_FlutterActivity1.setOnClickListener(this)
         btn_MethodChannelDemoActivity.setOnClickListener(this)
