@@ -8,6 +8,8 @@
 #include <string>
 #include <android/log.h>
 #include <deque>
+//#include <shared_mutex>
+#include <thread>
 
 /*
  * Class:     com_zw_android_flutter_activity_demo_STLActivity
@@ -16,6 +18,11 @@
  */
 JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_STLActivity_test_1dequeue
         (JNIEnv *env, jclass jclazz) {
+    // 获取cpu核数
+    int hc = std::thread::hardware_concurrency();
+
+    __android_log_print(ANDROID_LOG_INFO, "jni-log", "hardware_concurrency: %d", hc);
+
     std::deque<int> deque;
     deque.push_back(1);
     deque.push_back(2);

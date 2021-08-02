@@ -21,6 +21,9 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags "-std=c++11"
+//                cppFlags "-frtti -fexceptions"
+//                cppFlags "-ffunction-sections -fdata-sections"
+//                cppFlags "-Wl,--gc-sections"
             }
         }
     }
