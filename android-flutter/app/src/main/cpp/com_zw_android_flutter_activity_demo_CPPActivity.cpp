@@ -117,3 +117,16 @@ JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_bt
 //    thread1.detach();
 }
 
+/*
+ * Class:     com_zw_android_flutter_activity_demo_CPPActivity
+ * Method:    btn_test2
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_btn_1test2
+        (JNIEnv *env, jclass jclazz) {
+    __android_log_print(ANDROID_LOG_INFO, "jni-log", "id=%d\n", std::this_thread::get_id());
+
+    float f = 1.0f;
+    int i = f;
+}
+

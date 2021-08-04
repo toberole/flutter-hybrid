@@ -25,6 +25,9 @@ public class CPPActivity extends AppCompatActivity implements View.OnClickListen
         btn = findViewById(R.id.btn_test1);
         btn.setOnClickListener(this);
 
+        btn = findViewById(R.id.btn_test2);
+        btn.setOnClickListener(this);
+
 
     }
 
@@ -41,7 +44,9 @@ public class CPPActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.btn_test1:
                 btn_test1();
                 break;
-
+            case R.id.btn_test2:
+                btn_test2();
+                break;
         }
     }
 
@@ -50,4 +55,6 @@ public class CPPActivity extends AppCompatActivity implements View.OnClickListen
     private static native void closure();
 
     private static native void btn_test1();
+
+    private static native void btn_test2();
 }
