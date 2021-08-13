@@ -1,20 +1,20 @@
 package com.zw.android_flutter.activity.demo
 
-import android.os.Bundle
+import okhttp3.*
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import java.io.IOException
 import com.zw.android_flutter.R
-import kotlinx.android.synthetic.main.activity_okhttp.*
+import kotlinx.coroutines.launch
+import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import java.io.IOException
-import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
-import java.util.concurrent.TimeUnit
+import java.util.concurrent.LinkedBlockingQueue
+import androidx.appcompat.app.AppCompatActivity
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import kotlinx.android.synthetic.main.activity_okhttp.*
 
 /**
  * OKhttp使用到的设计模式
