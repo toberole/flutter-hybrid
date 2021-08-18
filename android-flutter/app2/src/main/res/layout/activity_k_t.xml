@@ -2,36 +2,37 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sv_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".MainActivity">
+    android:scrollbars="none"
+    tools:context=".test1.KTActivity">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_Test1Activity"
+            android:id="@+id/btn_test1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Test1Activity"
+            android:text="test1"
             android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btn_KTActivity"
+            android:id="@+id/btn_test2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="KTActivity"
+            android:text="test2"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_test3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义线程池"
+            android:textAllCaps="false" />
 
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 </ScrollView>
