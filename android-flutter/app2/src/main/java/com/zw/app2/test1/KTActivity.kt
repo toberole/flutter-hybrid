@@ -50,6 +50,11 @@ class KTActivity : AppCompatActivity(), View.OnClickListener {
             Log.i(TAG, "1 ... thread name: ${Thread.currentThread().name}")
         }
 
+
+
+
+
+
         GlobalScope.launch(coroutineDispatcher) {
             Log.i(TAG, "2 ... thread name: ${Thread.currentThread().name}")
         }
