@@ -23,8 +23,6 @@ class KTActivity : AppCompatActivity(), View.OnClickListener {
         btn_test1.setOnClickListener(this)
         btn_test2.setOnClickListener(this)
         btn_test3.setOnClickListener(this)
-
-
     }
 
     override fun onClick(v: View?) {
