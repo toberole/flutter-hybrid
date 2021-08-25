@@ -6,6 +6,7 @@
 #include <mutex>
 #include <thread>
 
+extern JavaVM *g_vm;
 /**
  * std::lock_guard能实现的std::unique_lock都能实现
  *
@@ -128,5 +129,32 @@ JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_bt
 
     float f = 1.0f;
     int i = f;
+}
+
+void CPPActivity_demo_test_env() {
+    JNIEnv *env = nullptr;
+    int ret = g_vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_6);
+    if (!ret) {
+
+    } else {
+        ret = g_vm->AttachCurrentThread(&env, nullptr);
+
+        g_vm->DetachCurrentThread();
+    }
+}
+
+
+/*
+ * Class:     com_zw_android_flutter_activity_demo_CPPActivity
+ * Method:    btn_test3
+ * Signature: (Ljava/lang/String;)Lcom/zw/android_flutter/bean/TestBean;
+ */
+JNIEXPORT jobject JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_btn_1test3
+        (JNIEnv *env, jclass jclazz, jstring jstr) {
+    const char *chs = env->GetStringUTFChars(jstr, nullptr);
+    __android_log_print(ANDROID_LOG_INFO, "jni-log", "id=%d,jstr=%s\n",
+                        std::this_thread::get_id(), chs);
+    env->ReleaseStringUTFChars(jstr, chs);
+    return nullptr;
 }
 

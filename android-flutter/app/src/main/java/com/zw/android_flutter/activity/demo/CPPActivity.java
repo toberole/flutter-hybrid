@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.zw.android_flutter.R;
+import com.zw.android_flutter.bean.TestBean;
 
 public class CPPActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,6 +28,9 @@ public class CPPActivity extends AppCompatActivity implements View.OnClickListen
         btn = findViewById(R.id.btn_test2);
         btn.setOnClickListener(this);
 
+        btn = findViewById(R.id.btn_test3);
+        btn.setOnClickListener(this);
+
 
     }
 
@@ -46,6 +49,8 @@ public class CPPActivity extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.btn_test2:
                 btn_test2();
+            case R.id.btn_test3:
+                btn_test3("Hello test3 ......");
                 break;
         }
     }
@@ -57,4 +62,7 @@ public class CPPActivity extends AppCompatActivity implements View.OnClickListen
     private static native void btn_test1();
 
     private static native void btn_test2();
+
+    private static native TestBean btn_test3(String s);
+
 }

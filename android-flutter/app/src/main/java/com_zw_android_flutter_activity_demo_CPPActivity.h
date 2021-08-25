@@ -39,6 +39,14 @@ JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_bt
 JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_btn_1test2
   (JNIEnv *, jclass);
 
+/*
+ * Class:     com_zw_android_flutter_activity_demo_CPPActivity
+ * Method:    btn_test3
+ * Signature: (Ljava/lang/String;)Lcom/zw/android_flutter/bean/TestBean;
+ */
+JNIEXPORT jobject JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_btn_1test3
+  (JNIEnv *, jclass, jstring);
+
 #ifdef __cplusplus
 }
 #endif
