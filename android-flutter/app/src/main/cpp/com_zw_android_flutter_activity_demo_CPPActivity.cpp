@@ -134,11 +134,20 @@ JNIEXPORT void JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity_bt
 void CPPActivity_demo_test_env() {
     JNIEnv *env = nullptr;
     int ret = g_vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_6);
+    __android_log_print(ANDROID_LOG_INFO, "jni-log", "demo_test_env=%d\n", ret);
+
     if (!ret) {
-
+        // TODO 同一条线程可以共享 JNIEnv
     } else {
+        // TODO 不在同一条线程里面 使用JNIEnv的方法
+        // 连接一个Native创建的线程会触发构造一个java.lang.Thread对象，
+        // 然后其被添加到主线程群组（main ThreadGroup）,以让调试器可以检测到。
+        // 对一个已经连接的线程使用AttachCurrentThread不做任何操作（no-op）
         ret = g_vm->AttachCurrentThread(&env, nullptr);
+        if (!ret) {
+            __android_log_print(ANDROID_LOG_INFO, "jni-log", "AttachCurrentThread success ......");
 
+        }
         g_vm->DetachCurrentThread();
     }
 }
@@ -155,6 +164,11 @@ JNIEXPORT jobject JNICALL Java_com_zw_android_1flutter_activity_demo_CPPActivity
     __android_log_print(ANDROID_LOG_INFO, "jni-log", "id=%d,jstr=%s\n",
                         std::this_thread::get_id(), chs);
     env->ReleaseStringUTFChars(jstr, chs);
+
+
+    std::thread thread1(CPPActivity_demo_test_env);
+    thread1.detach();
+
     return nullptr;
 }
 

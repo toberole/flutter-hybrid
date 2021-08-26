@@ -1,7 +1,7 @@
 #include <android/log.h>
 #include <jni.h>
 #include <string>
-
+#include "GVMHolder.h"
 #include "register.h"
 #include "Singleton.h"
 
@@ -27,6 +27,8 @@ void native_lib_test1() {
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     g_vm = vm;
+
+    GVMHolder::getInstance()->setJavaVM(vm);
 
     JNIEnv *env = nullptr;
     vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_6);
