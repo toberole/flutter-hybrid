@@ -10,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidflutter">
-        <activity android:name=".test1.KTActivity"></activity>
+        <activity
+            android:name=".test1.ComposeActivity1"
+            android:exported="true"
+            android:label="@string/title_activity_compose1"
+            android:theme="@style/Theme.Androidflutter.NoActionBar" />
+        <activity android:name=".test1.KTActivity" />
         <activity
             android:name=".test1.TestActivity1"
             android:exported="true" />
