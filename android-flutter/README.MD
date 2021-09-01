@@ -7,6 +7,6 @@ finalize()
 再第二次被 GC 的时候由于没有了 finalize reference 与之对应，所以 finalize 方法不会再执行。
 
 3、含有Finalize方法的object需要至少经过两轮GC才有可能被释放。
-
-4、
+计算机
+321 4、123
 
