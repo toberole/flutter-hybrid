@@ -8,3 +8,5 @@ finalize()
 
 3、含有Finalize方法的object需要至少经过两轮GC才有可能被释放。
 
+4、
+
